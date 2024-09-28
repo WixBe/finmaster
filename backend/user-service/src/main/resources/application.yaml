@@ -1,0 +1,71 @@
+#spring:
+#  application:
+#    name: user-service
+#  datasource:
+#    platform: h2
+#    url: jdbc:h2:mem:test
+#    username: sa
+#    password: root
+#    driverClassName: org.h2.Driver
+#  jpa:
+#    database-platform: org.hibernate.dialect.H2Dialect
+#    hibernate:
+#      ddl-auto: create-drop
+#    show-sql: true
+#  h2:
+#    console:
+#      enabled: true
+#      path: /db
+#
+#logging:
+#  level:
+#    web: WARN
+#    root: INFO
+#    com.ust.user_service: DEBUG
+#  pattern: "%msg%n"
+
+spring:
+  application:
+    name: user-service
+  datasource:
+    platform: mysql
+    url: jdbc:mysql://localhost:3306/finMaster
+    username: root
+    password: root
+    driverClassName: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html # http://localhost:8100/swagger-ui/index.html
+  use-management-port: false
+  show-actuator: true
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+    web: WARN
+    root: INFO
+    com.ust.user_service: DEBUG
+  pattern: "%msg%n"
+
+security:
+  jwt:
+    secret-key: 3cfa76ef14937c1c0ea519f8fc057a80fcd04a7420f8e8bcd0a7567c272e007b
+    expiration-time: 86400000
+
+server:
+  port: 8100
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

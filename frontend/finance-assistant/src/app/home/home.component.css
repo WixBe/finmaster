@@ -1,0 +1,176 @@
+.home {
+  font-family: 'Arial', sans-serif;
+  width: 100vw;
+}
+
+/* Hero Section */
+.hero {
+  padding: 10rem 0;
+  background-color: #EFF2F5;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: #555;
+  margin: 2rem 0;
+}
+
+.hero .btn {
+  margin: 1.5rem;
+}
+
+/* From Uiverse.io by satyamchaudharydev */ 
+/* inspired from this svgbackgrounds.com/ */
+.btn {
+  width: fit-content;
+  gap: 0.4rem;
+  border: none;
+  font-weight: semi-blod;
+  cursor: pointer;
+  text-shadow: 2px 2px 3px rgb(136 0 136 / 50%);
+  background: linear-gradient(
+      15deg,
+      #408cff, blueviolet, #bc3fcc, blueviolet, #408cff
+    )
+    no-repeat;
+  background-size: 300%;
+  background-position: right center;
+  transition: background 0.3s ease;
+  color: #fff;
+}
+
+.btn:hover {
+  background-size: 320%;
+  background-position: left center;
+}
+
+.btn:hover svg {
+  fill: #fff;
+}
+
+.btn svg {
+  width: 23px;
+  fill: #f09f33;
+  transition: 0.3s ease;
+}
+
+
+/* Features Section */
+.features-section {
+  background-color: #fff;
+  padding: 5rem 0;
+}
+
+.features-section h2 {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  color: #333;
+}
+
+.feature-icon {
+  font-size: 3rem;
+  background: linear-gradient(
+      15deg,
+      #408cff, blueviolet, #bc3fcc, blueviolet, #408cff
+    )
+    no-repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300%;
+  background-position: right center;
+  transition: background 0.3s ease;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.feature-icon:hover {
+  background-size: 320%;
+  background-position: left center;
+}
+
+.features-section p {
+  color: #666;
+}
+
+/* Signup Section */
+.signup-section {
+  background-color: #f0f2f5;
+  padding: 8rem 0;
+}
+
+.signup-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.signup-section p {
+  font-size: 1.25rem;
+  margin-bottom: 3rem;
+}
+
+.signup-section .btn {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+}
+
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 30px 0;
+}
+
+.footer h5 {
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.footer-links {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #bbb;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #007bff;
+}
+
+.footer-social-icons {
+  list-style-type: none;
+  padding-left: 0;
+  display: flex;
+  gap: 15px;
+}
+
+.footer-social-icons li {
+  display: inline-block;
+}
+
+.footer-social-icons a {
+  color: #bbb;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.footer-social-icons a:hover {
+  color: #007bff;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 0.9rem;
+}

@@ -1,0 +1,47 @@
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-link {
+  color: white;
+}
+
+.nav-link.active {
+  color: white;
+  text-decoration: underline;
+}
+
+.d-flex {
+    width: 100vw;
+    padding: 0 1rem;
+}
+
+.navbar {
+  margin: 0 auto;
+    max-width: 100vw;
+    padding: 0 1rem;
+    background: linear-gradient(45deg, #408cff, blueviolet);
+}
+
+
+.vanta-container {
+  width: 100%;
+  height: 100vh; /* Adjust as needed */
+}
+
+#logo {
+  width: 3rem;
+  height: 3rem;
+  margin-left: -1rem;
+  margin-right: 1rem;
+}
+
+.navbar-toggler {
+  color: white;
+  margin-right: 1rem;
+}

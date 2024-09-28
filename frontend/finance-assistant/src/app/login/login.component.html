@@ -1,0 +1,45 @@
+<div class="login-container" w-100>
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input 
+                type="email" 
+                class="form-control" 
+                id="email" 
+                aria-describedby="emailHelp" 
+                placeholder="Enter email"
+                formControlName="email"
+                [ngClass]="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched) ? 'is-invalid': ''"
+            >
+            <div *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
+                <small class="alert alert-danger">Invalid email</small>
+            </div>
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input 
+                type="password" 
+                class="form-control" 
+                id="password" 
+                placeholder="Enter password"
+                formControlName="password"
+                [ngClass]="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched) ? 'is-invalid': ''"
+            >
+            <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
+                <small class="alert alert-danger">Password must be at least 8 characters long</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="rememberMe">
+                <label class="form-check-label" for="rememberMe">Remember Me</label>
+            </div>
+        </div>
+        <div class="btn-container">
+            <button type="submit" class="btn btn-primary">Login</button>
+            <span>Don't have an account? <a routerLink="signup" class="login-text">Register</a></span>
+        </div>
+    </form>
+</div>
