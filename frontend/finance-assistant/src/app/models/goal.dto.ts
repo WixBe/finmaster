@@ -5,5 +5,6 @@ export interface GoalDto {
     description?: string;
     priority: 'HIGH' | 'MEDIUM' | 'LOW';  // Using the priority enum
     durationInMonths: number;
+    startDate: Date;
   }
   

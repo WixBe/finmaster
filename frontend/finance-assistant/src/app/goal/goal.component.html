@@ -57,7 +57,7 @@
               <p class="card-text"><strong>Value:</strong> {{ goal.value }}</p>
               <p class="card-text"><strong>Description:</strong> {{ goal.description }}</p>
               <p class="card-text"><strong>Priority:</strong> {{ goal.priority }}</p>
-              <p class="card-text"><strong>Duration:</strong> {{ goal.durationInMonths }} months</p>
+              <p class="card-text"><strong>Days Left:</strong> {{ calculateDaysLeft(goal) }} days</p>
               
               <button (click)="confirmDelete(goal.id)" class="btn btn-danger">Delete</button>
             </div>

@@ -25,7 +25,8 @@ export class GoalComponent implements OnInit {
     value: 0,
     description: '',
     priority: 'HIGH',
-    durationInMonths: 0
+    durationInMonths: 0,
+    startDate: new Date()
   };
   goals: any[] = [];
   priorities: string[] = ['HIGH', 'MEDIUM', 'LOW'];
@@ -70,6 +71,19 @@ export class GoalComponent implements OnInit {
     });
   }
 
+  // Calculate remaining days for each goal
+  calculateDaysLeft(goal: GoalDto): number {
+    const currentDate = new Date();
+    const createdDate = new Date(goal.startDate);
+    const endDate = new Date(createdDate.setMonth(createdDate.getMonth() + goal.durationInMonths));
+    
+    // Calculate the difference in time
+    const timeDiff = endDate.getTime() - currentDate.getTime();
+    const daysLeft = Math.ceil(timeDiff / (1000 * 3600 * 24));  // Convert time to days
+
+    return daysLeft >= 0 ? daysLeft : 0;  // Return 0 if the goal has passed
+  }
+
   resetForm(): void {
     this.goal = {
       name: '',
@@ -77,7 +91,8 @@ export class GoalComponent implements OnInit {
       value: 0,
       description: '',
       priority: 'HIGH',
-      durationInMonths: 0
+      durationInMonths: 0,
+      startDate: new Date()
     };
   }
 }

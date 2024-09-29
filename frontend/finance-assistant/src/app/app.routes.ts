@@ -21,8 +21,8 @@ export const routes: Routes = [
     { path:'login', component: LoginComponent },
     { path:'home/signup/login', component: LoginComponent },
     { path:'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-    { path: 'news', component: NewsComponent },
-    { path: 'profile', component: ProfileComponent },
-    { path: 'goal', component: GoalComponent },
-    { path: 'vault', component: MychartComponent }
+    { path: 'news', component: NewsComponent, canActivate: [AuthGuard] },
+    { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+    { path: 'goal', component: GoalComponent, canActivate: [AuthGuard] },
+    { path: 'vault', component: MychartComponent, canActivate: [AuthGuard] }
 ];

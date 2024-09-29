@@ -5,13 +5,26 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { GoalService } from '../services/goal.service';
 import { UserService } from '../services/user.service';
 import { Transaction } from '../models/transactions';
+import { animate, style, transition, trigger } from '@angular/animations';
+import { GoalDto } from '../models/goal.dto';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
-  imports:[NgClass, NgFor, CommonModule]
+  imports:[NgClass, NgFor, CommonModule],
+  animations: [
+    trigger('slideInOut', [
+      transition(':enter', [
+        style({transform: 'translateY(-100%)'}),
+        animate('200ms ease-in', style({transform: 'translateY(0%)'}))
+      ]),
+      transition(':leave', [
+        animate('200ms ease-in', style({transform: 'translateY(-100%)'}))
+      ])
+    ])
+  ]
 })
 
 export class DashboardComponent implements OnInit {
@@ -23,6 +36,10 @@ export class DashboardComponent implements OnInit {
   totalBudget: number = 0;
   expanded: boolean = false;
   safety: boolean = true;
+
+  private accountBalanceFetched = false;  // New variable to track balance fetching
+  private totalBudgetFetched = false;    // New variable to track budget fetching
+
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver, private injector: Injector, private userService: UserService, private goalService: GoalService) {}
 
@@ -49,7 +66,9 @@ export class DashboardComponent implements OnInit {
 
   // Method to check safety based on account balance and total budget
   checkSafety(): void {
-    this.safety = this.accountBalance > this.totalBudget;
+    if (this.accountBalanceFetched && this.totalBudgetFetched) {
+      this.safety = this.accountBalance > this.totalBudget;
+    }
   }
 
   // Method to fetch the account balance
@@ -101,5 +120,17 @@ export class DashboardComponent implements OnInit {
   toggleTransactions(): void {
     this.expanded = !this.expanded;
   };
+
+  calculateDaysLeft(goal: GoalDto): number {
+    const currentDate = new Date();
+    const createdDate = new Date(goal.startDate);
+    const endDate = new Date(createdDate.setMonth(createdDate.getMonth() + goal.durationInMonths));
+    
+    // Calculate the difference in time
+    const timeDiff = endDate.getTime() - currentDate.getTime();
+    const daysLeft = Math.ceil(timeDiff / (1000 * 3600 * 24));  // Convert time to days
+
+    return daysLeft >= 0 ? daysLeft : 0;  // Return 0 if the goal has passed
+  }
 
 }

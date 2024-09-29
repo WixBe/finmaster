@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import jakarta.validation.constraints.NotNull;
 
+import java.time.LocalDate;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,6 +26,8 @@ public class GoalDto {
 
     @NotNull(message = "Priority cannot be null")
     private Priority priority; // Changed to Priority enum
+
+    private LocalDate startDate;
 
     private Integer durationInMonths;
 }

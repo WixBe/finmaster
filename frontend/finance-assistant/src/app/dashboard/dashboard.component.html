@@ -18,7 +18,7 @@
       <h2>Your Financial Goals</h2>
       <ul>
         <li *ngFor="let goal of goals">
-          <strong>{{ goal.name }}</strong> <br> Target: ₹{{ goal.value }} <br> Duration: {{ goal.durationInMonths }} Months
+          <strong>{{ goal.name }}</strong> <br> Target: ₹{{ goal.value }} <br> Days Left: {{ calculateDaysLeft(goal) }} days
         </li>
       </ul>
     </div>
@@ -34,24 +34,25 @@
             <th>Amount</th>
           </tr>
         </thead>
-        <tbody [@slideInOut]>
-        <!-- Conditionally slice based on expanded state -->
-        <tr *ngFor="let transaction of transactions | slice:(expanded ? 0 : -5)">
-          <td>{{ transaction.transactionDate | date: 'dd-MM-yyyy' }}</td>
-          <td>{{ transaction.transactionDetails }}</td>
-          <td [ngClass]="{
-            'negative': transaction.transactionType === 'Withdraw',
-            'positive': transaction.transactionType === 'Deposit'
-          }">
-            ₹{{ transaction.amount }}
-          </td>
-        </tr>
-      </tbody>
+        <tbody>
+          <!-- Conditionally slice based on expanded state -->
+          <tr *ngFor="let transaction of transactions | slice:(expanded ? 0 : -5)" [@slideInOut]="expanded ? 'expanded' : 'collapsed'">
+            <td>{{ transaction.transactionDate | date: 'dd-MM-yyyy' }}</td>
+            <td>{{ transaction.transactionDetails }}</td>
+            <td [ngClass]="{
+              'negative': transaction.transactionType === 'Withdraw',
+              'positive': transaction.transactionType === 'Deposit'
+            }">
+              ₹{{ transaction.amount }}
+            </td>
+          </tr>
+        </tbody>
       </table>
       <div class="transactions-btn">
         <a class="btn btn-primary" (click)="toggleTransactions()">
           {{ expanded ? 'Collapse' : 'Expand' }}
-        </a>      </div>
-    </div>
+        </a>
+      </div>
+    </div>    
   </div>
   

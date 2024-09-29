@@ -37,6 +37,10 @@
                 <label class="form-check-label" for="rememberMe">Remember Me</label>
             </div>
         </div>
+        <!-- Error message for invalid login -->
+        <div *ngIf="invalidLogin" class="alert alert-danger mt-2">
+            Invalid username or password
+        </div>
         <div class="btn-container">
             <button type="submit" class="btn btn-primary">Login</button>
             <span>Don't have an account? <a routerLink="signup" class="login-text">Register</a></span>

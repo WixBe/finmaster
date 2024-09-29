@@ -14,7 +14,7 @@ export class AuthService {
     authStatus = this.loggedIn.asObservable();
 
     constructor(private router: Router, private location: Location) {
-        this.checkLoginStatusOnInit(); // Check login status on app initialization
+        //this.checkLoginStatusOnInit(); // Check login status on app initialization
     }
 
     // Check if localStorage is available
@@ -36,6 +36,16 @@ export class AuthService {
         }
     }
 
+    // Check if the user is logged in by checking the token in localStorage
+    checkLoginStatus(): boolean {
+        const token = localStorage.getItem('token');
+        return !!token;  // Return true if token exists
+    }
+
+    login() {
+        this.loggedIn.next(true); // Update the BehaviorSubject to notify subscribers
+      }
+
     // Logout method to clear the token and reset login state
     logout() {
         if (typeof localStorage !== 'undefined') {
@@ -44,9 +54,9 @@ export class AuthService {
         this.loggedIn.next(false);
         
         // Navigate to home and replace the current URL in the history
-        this.router.navigate(['/home']).then(() => {
-          // Clear the history stack by using location.replaceState
-          this.location.replaceState('/home');
+        this.router.navigate(['/home'], { replaceUrl: true }).then(() => {
+            // Optionally, navigate to the login page or any other safe page
+            this.router.navigate(['/login'], { replaceUrl: true });  // This replaces the current state in history
         });
       }
 
