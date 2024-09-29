@@ -1,4 +1,4 @@
-# personal-finance-assistant
+# FINMASTER - A personal finance assistant
 
 
 ## Scenario:
@@ -30,3 +30,23 @@ impulsive spending habits.
 4. Provide provisions for setting monthly / yearly budget goals
 5. Visualisations on spending patterns
 6. Tracking of debts and loans and assistance and strategies for repayment
+
+## DEMONSTRATION
+
+### Home page
+![HOME-PAGE](./images/homepage.png)
+
+### Features
+![FEATURES](./images/features.png)
+
+### Dashboard
+![DASHBOARD](./images/dashboard.png)
+
+### Goals
+![GOALS](./images/goals.png)
+
+### Vault
+![VAULT](./images/vault.png)
+
+### News
+![NEWS](./images/news.png)
