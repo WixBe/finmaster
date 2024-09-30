@@ -31,7 +31,7 @@ impulsive spending habits.
 5. Visualisations on spending patterns
 6. Tracking of debts and loans and assistance and strategies for repayment
 
-## DEMONSTRATION
+## SCREENSHOTS
 
 ### Home page
 ![HOME-PAGE](./images/homepage.png)
