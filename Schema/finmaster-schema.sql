@@ -438,7 +438,7 @@ VALUES (
     'john@gmail.com',
     'John',
     'Doe',
-    '$2a$10$C2WctOkTy73Lsk6D..vm3O2Eir696VOV4iqZNkHFpK.QLPBiY0lh6',
+    '$2a$10$C2WctOkTy73Lsk6D..vm3O2Eir696VOV4iqZNkHFpK.QLPBiY0lh6', -- 12345678
     '1234567890',
     0,
     '2024-09-27 08:56:33.396278'
