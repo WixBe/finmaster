@@ -66,9 +66,7 @@ export class DashboardComponent implements OnInit {
 
   // Method to check safety based on account balance and total budget
   checkSafety(): void {
-    if (this.accountBalanceFetched && this.totalBudgetFetched) {
-      this.safety = this.accountBalance > this.totalBudget;
-    }
+    this.safety = this.accountBalance >= this.totalBudget;
   }
 
   // Method to fetch the account balance
